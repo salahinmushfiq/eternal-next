@@ -4,7 +4,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { removeFromCart } from '@/features/cart/cartSlice';
-import { X } from 'lucide-react';
+import { Trash2, X } from 'lucide-react';
 import Link from 'next/link';
 
 interface CartDrawerProps {
@@ -62,11 +62,8 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                       <p className="text-xs text-[#6a5c51]">Qty: {item.quantity}</p>
                       <p className="text-xs text-[#b59f90]">৳{item.price * item.quantity}</p>
                     </div>
-                    <button
-                      onClick={() => dispatch(removeFromCart(item.id))}
-                      className="text-xs text-red-500 hover:underline"
-                    >
-                      Remove
+                    <button onClick={() => dispatch(removeFromCart(item.id))}>
+                          <Trash2 size={18} className="text-red-400" />
                     </button>
                   </div>
                 ))

@@ -51,7 +51,7 @@ const Testimonials = () => {
                   alt={t.name}
                   className="w-12 h-12 rounded-full object-cover"
                 /> */}
-                <div className="relative w-20 h-20">
+                <div className="relative w-20 h-20 rounded-full">
                    <Image
                     src={t.image}
                     alt={t.name}
