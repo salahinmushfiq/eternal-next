@@ -54,13 +54,17 @@ const Gallery = () => (
               alt={img.alt}
               className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
             /> */}
-            <Image
+            <div className='w-full h-72 transform group-hover:scale-105 transition-transform duration-500'>
+              <Image
               src={img.src}
               alt={img.alt}
-              width={80}
-              height={80}
-              className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
+              // width={80}
+              // height={80}
+              fill
+              className=" object-cover"
             />
+              </div>
+           
             <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-lg font-medium">
               {img.alt}
             </div>

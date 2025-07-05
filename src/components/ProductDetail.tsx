@@ -144,13 +144,17 @@ const handleAddToCart = () => {
           {relatedProducts.map((item) => (
             <div key={item.id} className="bg-white rounded-xl shadow p-3">
               {/* <img src={item.image} alt={item.name} className="rounded mb-3" /> */}
-              <Image
+              <div className='rounded mb-3'>
+                <Image
                   src={item.image}
                   alt={item.name}
                   // width={200}
                   // height={200}
-                  className="rounded mb-3 object-cover"
+                  fill
+                  className="object-cover"
                 />
+              </div>
+              
               <h3 className="text-sm font-medium">{item.name}</h3>
               <p className="text-xs text-[#b59f90]">{item.subLabel}</p>
               <p className="text-sm mt-1">৳{item.price}</p>

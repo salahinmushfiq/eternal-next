@@ -43,13 +43,14 @@ const CartPage: React.FC = () => {
                     alt={item.name}
                     className="w-20 h-20 rounded object-cover border"
                   /> */}
-                  <Image
+                   <div className='w-20 h-20 rounded object-cover border relative'>
+                    <Image
                     src={item.image}
                     alt={item.name}
-                    width={80}
-                    height={80}
-                    className="w-20 h-20 rounded object-cover border"
+                    fill
+                    className="object cover"
                   />
+                  </div>
                   <div>
                     <h3 className="font-semibold">{item.name}</h3>
                     <p className="text-sm text-[#6a5c51] capitalize">{item.category}</p>

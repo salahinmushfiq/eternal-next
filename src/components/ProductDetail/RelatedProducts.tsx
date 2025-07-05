@@ -37,13 +37,15 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products }) => {
                 alt={product.name}
                 className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300"
               /> */}
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={200}
-                height={200}
-                className="rounded-lg w-full h-48 object-cover"
-              />
+              <div className='relative w-full h-64 object-cover transform group-hover:scale-105 transition duration-300'>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="rounded-lg object-cover"
+                  />
+              </div>
+              
             </div>
 
             {/* Info */}

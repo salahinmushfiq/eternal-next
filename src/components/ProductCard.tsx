@@ -27,14 +27,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           alt={product.name}
           className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300"
         /> */}
+        <div className="relative w-full h-64 object-cover transform group-hover:scale-105 transition duration-300">
         <Image
           src={product.image}
           alt={product.name}
-          width={300}
-          height={300}
-          className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300"
+          fill
+          className="object-cover"
         />
-        
+        </div>
       </div>
 
       {/* Info */}

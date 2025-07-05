@@ -50,13 +50,16 @@ export default function CartPage() {
                 {/* Thumbnail */}
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 rounded-xl overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={80}
-                      height={80}
-                      className="object-cover w-full h-full"
-                    />
+                    <div className='w-full h-full'>
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          fill
+                          className="object-cover"
+                        />
+
+                    </div>
+                    
                   </div>
                   {/* Info */}
                   <div>

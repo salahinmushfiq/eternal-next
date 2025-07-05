@@ -37,13 +37,15 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
           alt="Selected Product"
           className="w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105"
         /> */}
-        <Image
+        <div className='relative w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105'>
+            <Image
             src={selectedImage}
             alt="Selected Product"
-            width={600}
-            height={600}
-            className="w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105"
+            fill
+            className="object-cover"
           />
+        </div>
+        
 
         {/* Zoom Icon Overlay */}
         <div className="absolute top-3 right-3 bg-[#7f6d5f]/80 text-white p-2 rounded-full shadow-md backdrop-blur-sm">
@@ -74,13 +76,15 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
                 alt={`Thumbnail ${idx + 1}`}
                 className="h-full w-full object-cover"
               /> */}
-              <Image
+              <div className='relative w-full h-full object-cover rounded-xl'>
+                  <Image
                 src={img}
                 alt={`Product image ${idx + 1}`}
-                width={600}
-                height={600}
-                className="w-full h-full object-cover rounded-xl"
+                fill
+                className="object-cover rounded-xl"
               />
+              </div>
+              
             </button>
           ))}
         </div>

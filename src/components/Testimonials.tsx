@@ -51,13 +51,15 @@ const Testimonials = () => {
                   alt={t.name}
                   className="w-12 h-12 rounded-full object-cover"
                 /> */}
-                <Image
+                <div className="relative w-20 h-20">
+                   <Image
                     src={t.image}
                     alt={t.name}
-                    width={80}
-                    height={80}
-                    className="rounded-full"
+                    fill
+                    className="object-cover rounded-full"
                   />
+                </div>
+              
                 <div className="text-left">
                   <h4 className="text-[#7f6d5f] font-semibold">{t.name}</h4>
                   <p className="text-sm text-[#b59f90]">{t.role}</p>

@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['images.pexels.com',
+      'randomuser.me', // ✅ Add this line
+    ], // ✅ Add your actual image domains here
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -14,5 +18,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-
-
