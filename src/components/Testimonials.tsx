@@ -56,6 +56,7 @@ const Testimonials = () => {
                     src={t.image}
                     alt={t.name}
                     fill
+                    unoptimized
                     className="object-cover rounded-full"
                   />
                 </div>
