@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
 import { Product } from '../types/Product';
+import Image from "next/image"; // ✅ Add this
 
 interface ProductCardProps {
   product: Product;
@@ -21,11 +22,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* Product Image */}
       <div className="overflow-hidden">
-        <img
+        {/* <img
           src={product.image}
           alt={product.name}
           className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300"
+        /> */}
+        <Image
+          src={product.image}
+          alt={product.name}
+          width={300}
+          height={300}
+          className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300"
         />
+        
       </div>
 
       {/* Info */}

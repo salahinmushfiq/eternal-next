@@ -10,6 +10,7 @@ import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
 import Lightbox from 'yet-another-react-lightbox';
 // import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn } from 'lucide-react';
+import Image from "next/image";
 
 interface ProductGalleryProps {
   image: string;
@@ -31,11 +32,18 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
         className="relative w-full border border-[#e9e4e0] rounded-2xl overflow-hidden shadow-md cursor-zoom-in hover:shadow-lg transition-all"
         onClick={() => setOpen(true)}
       >
-        <img
+        {/* <img
           src={selectedImage}
           alt="Selected Product"
           className="w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105"
-        />
+        /> */}
+        <Image
+            src={selectedImage}
+            alt="Selected Product"
+            width={600}
+            height={600}
+            className="w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105"
+          />
 
         {/* Zoom Icon Overlay */}
         <div className="absolute top-3 right-3 bg-[#7f6d5f]/80 text-white p-2 rounded-full shadow-md backdrop-blur-sm">
@@ -61,10 +69,17 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
                   : 'border-gray-200'
               }`}
             >
-              <img
+              {/* <img
                 src={img}
                 alt={`Thumbnail ${idx + 1}`}
                 className="h-full w-full object-cover"
+              /> */}
+              <Image
+                src={img}
+                alt={`Product image ${idx + 1}`}
+                width={600}
+                height={600}
+                className="w-full h-full object-cover rounded-xl"
               />
             </button>
           ))}

@@ -6,6 +6,7 @@ import { useAppDispatch } from '@/lib/hooks';
 import { incrementQty, decrementQty, removeFromCart } from '@/features/cart/cartSlice';
 import { Product } from '@/types/Product';
 import { Minus, Plus, Trash2 } from 'lucide-react';
+import Image from "next/image";
 
 interface Props {
   item: Product & { quantity: number };
@@ -17,6 +18,13 @@ const CartItem = ({ item }: Props) => {
   return (
     <div className="flex gap-4 border-b pb-4 mb-4">
       <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded" />
+      <Image
+        src={item.image}
+        alt={item.name}
+        // width={200}
+        // height={200}
+        className="w-20 h-20 object-cover rounded"
+      />
       <div className="flex-1">
         <div className="font-semibold text-[#7f6d5f]">{item.name}</div>
         <div className="text-sm text-gray-500">{item.subLabel}</div>

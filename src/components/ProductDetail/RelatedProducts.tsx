@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Eye } from 'lucide-react';
 import { Product } from '@/types/Product';
+import Image from "next/image";
 
 interface RelatedProductsProps {
   products: Product[];
@@ -31,10 +32,17 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ products }) => {
 
             {/* Product Image */}
             <div className="overflow-hidden">
-              <img
+              {/* <img
                 src={product.image}
                 alt={product.name}
                 className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-300"
+              /> */}
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={200}
+                height={200}
+                className="rounded-lg w-full h-48 object-cover"
               />
             </div>
 

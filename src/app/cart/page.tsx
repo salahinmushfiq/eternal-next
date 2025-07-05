@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '@/lib/hooks';
 import { removeFromCart, updateQuantity } from '@/features/cart/cartSlice';
 import { Minus, Plus, Trash2 } from 'lucide-react';
+import Image from "next/image";
 
 const CartPage: React.FC = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
@@ -37,9 +38,16 @@ const CartPage: React.FC = () => {
               >
                 {/* Image & Info */}
                 <div className="flex items-center gap-4">
-                  <img
+                  {/* <img
                     src={item.image}
                     alt={item.name}
+                    className="w-20 h-20 rounded object-cover border"
+                  /> */}
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={80}
+                    height={80}
                     className="w-20 h-20 rounded object-cover border"
                   />
                   <div>

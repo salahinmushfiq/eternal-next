@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -45,11 +46,18 @@ const Testimonials = () => {
               <Quote className="absolute top-4 right-4 text-[#e9e4e0]" size={32} />
               <p className="text-[#6a5c51] italic mb-4">“{t.text}”</p>
               <div className="flex items-center gap-4 mt-6">
-                <img
+                {/* <img
                   src={t.image}
                   alt={t.name}
                   className="w-12 h-12 rounded-full object-cover"
-                />
+                /> */}
+                <Image
+                    src={t.image}
+                    alt={t.name}
+                    width={80}
+                    height={80}
+                    className="rounded-full"
+                  />
                 <div className="text-left">
                   <h4 className="text-[#7f6d5f] font-semibold">{t.name}</h4>
                   <p className="text-sm text-[#b59f90]">{t.role}</p>

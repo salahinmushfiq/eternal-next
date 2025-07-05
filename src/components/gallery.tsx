@@ -1,6 +1,7 @@
 // components/Gallery.jsx
 "use client";
 import { motion } from 'framer-motion';
+import Image from "next/image";
 
 const images = [
   {
@@ -48,9 +49,16 @@ const Gallery = () => (
             key={idx}
             className="relative overflow-hidden rounded-2xl shadow-lg group"
           >
-            <img
+            {/* <img
               src={img.src}
               alt={img.alt}
+              className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
+            /> */}
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={80}
+              height={80}
               className="w-full h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white text-lg font-medium">

@@ -7,6 +7,8 @@ import { addToCart } from '@/features/cart/cartSlice';
 import { motion } from 'framer-motion';
 import ProductData from '@/data/ProductData'; // For related items
 import { toast } from 'sonner';
+import Image from "next/image";
+
 
 type Props = {
   product: Product;
@@ -53,6 +55,7 @@ const handleAddToCart = () => {
             alt={product.name}
             className={`w-full object-cover transition-transform duration-300 ${isZoomed ? 'scale-110' : 'scale-100'}`}
           />
+          
         </div>
 
         {/* Product Info */}
@@ -140,7 +143,14 @@ const handleAddToCart = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {relatedProducts.map((item) => (
             <div key={item.id} className="bg-white rounded-xl shadow p-3">
-              <img src={item.image} alt={item.name} className="rounded mb-3" />
+              {/* <img src={item.image} alt={item.name} className="rounded mb-3" /> */}
+              <Image
+                  src={item.image}
+                  alt={item.name}
+                  // width={200}
+                  // height={200}
+                  className="rounded mb-3 object-cover"
+                />
               <h3 className="text-sm font-medium">{item.name}</h3>
               <p className="text-xs text-[#b59f90]">{item.subLabel}</p>
               <p className="text-sm mt-1">৳{item.price}</p>
