@@ -1,11 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // images: {
+  //   domains: ['images.pexels.com',
+  //     'randomuser.me', // ✅ Add this line
+  //   ], // ✅ Add your actual image domains here
+  // },
   images: {
-    domains: ['images.pexels.com',
-      'randomuser.me', // ✅ Add this line
-    ], // ✅ Add your actual image domains here
-  },
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'images.pexels.com',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'source.unsplash.com',
+      pathname: '/**',
+    },
+  ],
+},
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

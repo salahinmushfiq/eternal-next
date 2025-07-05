@@ -11,19 +11,21 @@ import Lightbox from 'yet-another-react-lightbox';
 // import { motion, AnimatePresence } from 'framer-motion';
 import { ZoomIn } from 'lucide-react';
 import Image from "next/image";
-
+import { motion } from 'framer-motion';
 interface ProductGalleryProps {
   image: string;
   additionalImages?: string[];
 }
 
 const ProductGallery: React.FC<ProductGalleryProps> = ({
+
   image,
   additionalImages = [],
 }) => {
   const images = [image, ...additionalImages];
   const [selectedImage, setSelectedImage] = useState(image);
   const [open, setOpen] = useState(false);
+   const [isZoomed, setIsZoomed] = useState(false);
 
   return (
     <div className="w-full space-y-4 animate-fadeIn">
@@ -37,14 +39,23 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
           alt="Selected Product"
           className="w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105"
         /> */}
-        <div className='relative w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105'>
+        <motion.div
+         onMouseEnter={() => setIsZoomed(true)}
+        onMouseLeave={() => setIsZoomed(false)}
+        // className="relative w-full h-full"
+        animate={{ scale: isZoomed ? 1.1 : 1 }}
+        transition={{ duration: 0.4 }}
+        
+        className='relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105'
+        >
             <Image
             src={selectedImage}
             alt="Selected Product"
             fill
             className="object-cover"
+            priority
           />
-        </div>
+        </motion.div>
         
 
         {/* Zoom Icon Overlay */}
@@ -77,7 +88,7 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
                 className="h-full w-full object-cover"
               /> */}
               <div className='relative w-full h-full object-cover rounded-xl'>
-                  <Image
+                <Image
                 src={img}
                 alt={`Product image ${idx + 1}`}
                 fill

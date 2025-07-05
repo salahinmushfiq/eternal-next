@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 
 const testimonials = [
   {

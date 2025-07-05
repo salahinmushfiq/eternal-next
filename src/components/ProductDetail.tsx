@@ -50,11 +50,17 @@ const handleAddToCart = () => {
           onMouseEnter={() => setIsZoomed(true)}
           onMouseLeave={() => setIsZoomed(false)}
         >
-          <motion.img
+          <motion.div className={`w-full object-cover transition-transform duration-300 ${isZoomed ? 'scale-110' : 'scale-100'}`}>
+            <Image 
+            
             src={product.image}
             alt={product.name}
-            className={`w-full object-cover transition-transform duration-300 ${isZoomed ? 'scale-110' : 'scale-100'}`}
-          />
+            
+            />
+            src={product.image}
+            alt={product.name}
+            
+          </motion.div>
           
         </div>
 

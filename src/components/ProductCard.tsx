@@ -8,9 +8,10 @@ import Image from "next/image"; // ✅ Add this
 
 interface ProductCardProps {
   product: Product;
+  priority?: boolean;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product,priority }) => {
   return (
     <div className="group relative bg-white border border-[#e9e4e0] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300">
       {/* Offer Badge */}
@@ -32,6 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           src={product.image}
           alt={product.name}
           fill
+          priority={priority}
           className="object-cover"
         />
         </div>

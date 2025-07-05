@@ -152,7 +152,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShoppingBag, Home, Box, Mail } from "lucide-react";
+import { Menu, X, ShoppingBag, Home, Tag, Phone } from "lucide-react";
 import CartDrawer from "@/components/Cart/CartDrawer";
 import { useAppSelector } from "@/lib/hooks";
 import Link from "next/link";
@@ -176,31 +176,69 @@ const Navbar: React.FC = () => {
     <>
       <nav className="bg-[#f4f1ed] shadow-md py-4 px-6 fixed top-0 left-0 right-0 z-50 backdrop-blur-md">
         <div className="flex justify-between items-center max-w-screen-xl mx-auto">
-          {/* Left: Nav links (desktop) */}
-          <div className="hidden md:flex space-x-6 text-[#7f6d5f] font-medium text-sm mr-auto">
-            <Link href="/" className="hover:text-[#b59f90] transition">Home</Link>
+          {/* Logo or empty div for spacing */}
+          <div className="flex items-center space-x-4">
+            {/* Mobile: Cart icon on left */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setShowCart(true)}
+                className="relative text-[#7f6d5f] hover:text-[#b59f90] transition"
+                aria-label="View cart"
+              >
+                <ShoppingBag size={22} />
+                {cartCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-[#b59f90] text-white text-xs px-1.5 rounded-full">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+            </div>
+          </div>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex space-x-6 text-[#7f6d5f] font-medium text-sm">
+            {/* <Link href="/" className="hover:text-[#b59f90] transition">Home</Link>
             <Link href="/#products" className="hover:text-[#b59f90] transition">Products</Link>
-            <Link href="/#contact" className="hover:text-[#b59f90] transition">Contact</Link>
+            <Link href="/#contact" className="hover:text-[#b59f90] transition">Contact</Link> */}
+                <ul className="hidden md:flex gap-6 font-medium text-sm">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#products"
+                  className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
+                >
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#about"
+                  className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#contact"
+                  className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
+                >
+                  Contact
+                </Link>
+              </li>
+                </ul>
           </div>
 
-          {/* Mobile: Cart icon on left */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={() => setShowCart(true)}
-              className="relative text-[#7f6d5f] hover:text-[#b59f90] transition"
-              aria-label="View cart"
-            >
-              <ShoppingBag size={22} />
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-[#b59f90] text-white text-xs px-1.5 rounded-full">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-          </div>
-
-          {/* Right: Cart (desktop) + hamburger */}
+          {/* Right Side: Cart (Desktop) + Hamburger */}
           <div className="flex items-center space-x-4 md:space-x-6">
+            {/* Cart Icon (Desktop) */}
             <button
               onClick={() => setShowCart(true)}
               className="hidden md:block relative text-[#7f6d5f] hover:text-[#b59f90] transition"
@@ -214,6 +252,7 @@ const Navbar: React.FC = () => {
               )}
             </button>
 
+            {/* Hamburger Icon */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
@@ -238,29 +277,47 @@ const Navbar: React.FC = () => {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="md:hidden bg-[#f4f1ed]/90 backdrop-blur-md px-6 pb-4 overflow-hidden shadow-md rounded-b-lg"
+              className="md:hidden bg-[#f4f1ed]/90 backdrop-blur-md px-6 pb-4 overflow-hidden rounded-b-lg"
             >
-              <Link
+               {[
+                { label: "Home", href: "#hero", icon: <Home size={18} /> },
+                { label: "Products", href: "#products", icon: <Tag size={18} /> },
+                { label: "Contact", href: "#contact", icon: <Phone size={18} /> },
+              ].map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  area-
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-3 py-3 text-[#7f6d5f] hover:text-[#b59f90]
+                   border-b last:border-none border-[#e9e4e0] text-base font-medium transition-all
+                   focus:outline-none focus-visible:ring-2"
+                >
+                  {link.icon}
+                  {link.label}
+                </Link>
+              ))}
+              {/* <Link
                 href="/"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 py-2 text-[#7f6d5f] hover:text-[#b59f90] transition"
+                className="block py-2 text-[#7f6d5f] hover:text-[#b59f90] transition"
               >
-                <Home size={18} /> Home
+                Home
               </Link>
               <Link
                 href="/#products"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 py-2 text-[#7f6d5f] hover:text-[#b59f90] transition"
+                className="block py-2 text-[#7f6d5f] hover:text-[#b59f90] transition"
               >
-                <Box size={18} /> Products
+                Products
               </Link>
               <Link
                 href="/#contact"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2 py-2 text-[#7f6d5f] hover:text-[#b59f90] transition"
+                className="block py-2 text-[#7f6d5f] hover:text-[#b59f90] transition"
               >
-                <Mail size={18} /> Contact
-              </Link>
+                Contact
+              </Link> */}
             </motion.div>
           )}
         </AnimatePresence>
@@ -273,4 +330,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
