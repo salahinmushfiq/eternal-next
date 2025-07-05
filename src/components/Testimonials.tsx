@@ -52,12 +52,10 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 /> */}
                 <div className="relative w-20 h-20 rounded-full">
-                   <Image
-                    src={t.image}
-                    alt={t.name}
-                    fill
-                    unoptimized
-                    className="object-cover rounded-full"
+                  <img
+                    src="https://randomuser.me/api/portraits/women/65.jpg"
+                    alt="Testimonial"
+                    className="rounded-full w-16 h-16 object-cover"
                   />
                 </div>
               
