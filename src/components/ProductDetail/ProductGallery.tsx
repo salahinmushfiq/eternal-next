@@ -1,31 +1,28 @@
 'use client';
 
 import React, { useState } from 'react';
-// import ImageZoom from 'react-inner-image-zoom';
-import 'react-inner-image-zoom/lib/styles.min.css';
-import "yet-another-react-lightbox/styles.css";
-import "yet-another-react-lightbox/plugins/thumbnails.css";
+import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
-import Lightbox from 'yet-another-react-lightbox';
-// import { motion, AnimatePresence } from 'framer-motion';
+import 'yet-another-react-lightbox/styles.css';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import { ZoomIn } from 'lucide-react';
-import Image from "next/image";
+import Image from 'next/image';
 import { motion } from 'framer-motion';
+
 interface ProductGalleryProps {
   image: string;
   additionalImages?: string[];
 }
 
 const ProductGallery: React.FC<ProductGalleryProps> = ({
-
   image,
   additionalImages = [],
 }) => {
   const images = [image, ...additionalImages];
   const [selectedImage, setSelectedImage] = useState(image);
   const [open, setOpen] = useState(false);
-   const [isZoomed, setIsZoomed] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   return (
     <div className="w-full space-y-4 animate-fadeIn">
@@ -34,40 +31,32 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
         className="relative w-full border border-[#e9e4e0] rounded-2xl overflow-hidden shadow-md cursor-zoom-in hover:shadow-lg transition-all"
         onClick={() => setOpen(true)}
       >
-        {/* <img
-          src={selectedImage}
-          alt="Selected Product"
-          className="w-full h-[480px] object-cover transition-transform duration-300 hover:scale-105"
-        /> */}
         <motion.div
-         onMouseEnter={() => setIsZoomed(true)}
-        onMouseLeave={() => setIsZoomed(false)}
-        // className="relative w-full h-full"
-        animate={{ scale: isZoomed ? 1.1 : 1 }}
-        transition={{ duration: 0.4 }}
-        
-        className='relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105'
+          onMouseEnter={() => setIsZoomed(true)}
+          onMouseLeave={() => setIsZoomed(false)}
+          animate={{ scale: isZoomed ? 1.1 : 1 }}
+          transition={{ duration: 0.4 }}
+          className="relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden"
         >
-            <Image
+          <Image
             src={selectedImage}
-            alt="Selected Product"
+            alt="Product preview"
             fill
             className="object-cover"
             priority
           />
         </motion.div>
-        
 
-        {/* Zoom Icon Overlay */}
+        {/* Zoom Icon */}
         <div className="absolute top-3 right-3 bg-[#7f6d5f]/80 text-white p-2 rounded-full shadow-md backdrop-blur-sm">
           <ZoomIn size={18} />
         </div>
       </div>
 
-      {/* Hint for mobile */}
-      <div className="text-xs text-center text-gray-500 mt-1 md:hidden">
+      {/* Hint */}
+      <p className="text-xs text-center text-gray-500 md:hidden">
         Tap image to zoom
-      </div>
+      </p>
 
       {/* Thumbnails */}
       {images.length > 1 && (
@@ -82,37 +71,27 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({
                   : 'border-gray-200'
               }`}
             >
-              {/* <img
-                src={img}
-                alt={`Thumbnail ${idx + 1}`}
-                className="h-full w-full object-cover"
-              /> */}
-              <div className='relative w-full h-full object-cover rounded-xl'>
+              <div className="relative w-full h-full object-cover rounded-xl">
                 <Image
-                src={img}
-                alt={`Product image ${idx + 1}`}
-                fill
-                className="object-cover rounded-xl"
-              />
+                  src={img}
+                  alt={`Product image ${idx + 1}`}
+                  fill
+                  className="object-cover rounded-xl"
+                />
               </div>
-              
             </button>
           ))}
         </div>
       )}
 
-      {/* Lightbox Viewer */}
+      {/* Lightbox */}
       <Lightbox
         open={open}
         close={() => setOpen(false)}
         slides={images.map((src) => ({ src }))}
         plugins={[Zoom, Thumbnails]}
         animation={{ zoom: 0.5 }}
-        styles={{
-          container: {
-            backgroundColor: 'rgba(0, 0, 0, 0.95)',
-          },
-        }}
+        styles={{ container: { backgroundColor: 'rgba(0, 0, 0, 0.95)' } }}
       />
     </div>
   );

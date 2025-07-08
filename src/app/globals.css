@@ -35,3 +35,32 @@ body {
 }
 
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e0dcd7 25%,
+    #f4f1ed 50%,
+    #e0dcd7 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+.animate-filter-enter {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.animate-filter-enter-active {
+  opacity: 1;
+  transform: scale(1);
+}
