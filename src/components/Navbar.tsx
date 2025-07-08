@@ -152,19 +152,21 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ShoppingBag, Home, Tag, Phone } from "lucide-react";
+import { Menu, X, ShoppingBag, Home, Tag, Phone, TrendingUp } from "lucide-react";
 import CartDrawer from "@/components/Cart/CartDrawer";
 import { useAppSelector } from "@/lib/hooks";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showCart, setShowCart] = useState(false);
-
+  
   const cartCount = useAppSelector((state) =>
     state.cart.items.reduce((sum, item) => sum + item.quantity, 0)
   );
-
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
@@ -211,29 +213,37 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <Link
-                  href="/#products"
+                  href={isHome ? '#trending' : '/#trending'}
                   className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
                 >
-                  Products
+                  Trending
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
-                  href="/#about"
+                  href="isHome ? '#about' : '/#about'"
                   className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
                 >
                   About
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
-                  href="/#contact"
+                  href={isHome ? '#contact' : '/#contact'}
                   className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
                 >
                   Contact
                 </Link>
               </li>
-                </ul>
+              <li>
+                <Link
+                  href='/product'
+                  className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
+                >
+                  Product
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Right Side: Cart (Desktop) + Hamburger */}
@@ -280,14 +290,17 @@ const Navbar: React.FC = () => {
               className="md:hidden bg-[#f4f1ed]/90 backdrop-blur-md px-6 pb-4 overflow-hidden rounded-b-lg"
             >
                {[
-                { label: "Home", href: "#hero", icon: <Home size={18} /> },
-                { label: "Products", href: "#products", icon: <Tag size={18} /> },
-                { label: "Contact", href: "#contact", icon: <Phone size={18} /> },
+                { label: "Home", href: isHome ? "#hero" : "/" , icon: <Home size={18}/>},
+                { label: "Trending", href: isHome ? "#trending" : "/#trending" , icon: <TrendingUp  size={18}/>},
+                { label: "Contact", href: isHome ? "#contact" : "/#contact", icon: <Phone size={18}/> },
+                { label: "Shop", href: "/product", icon: <Tag size={18}/> },
+                
+//                 
               ].map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  area-
+                  aria-label="Toggle open"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-3 py-3 text-[#7f6d5f] hover:text-[#b59f90]
                    border-b last:border-none border-[#e9e4e0] text-base font-medium transition-all

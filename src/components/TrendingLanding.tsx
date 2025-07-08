@@ -1,17 +1,18 @@
 'use client';
 
 import React from 'react';
-import ProductCard from './ProductCard';
-import { Product } from '../types/Product';
-import ProductData from '../data/ProductData';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import ProductCard from './ProductCard';
+import ProductData from '../data/ProductData';
+import { Product } from '../types/Product';
 
-const curatedProducts: Product[] = ProductData.slice(0, 6); // Top 6 products for landing
+const curatedProducts: Product[] = ProductData.slice(0, 6); // Display top 6 products
 
 export default function TrendingLanding() {
   return (
-    <section className="py-24 px-6 bg-[#f4f1ed]">
+    <section id="trending" className="py-24 px-6 bg-[#f4f1ed]">
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -19,12 +20,15 @@ export default function TrendingLanding() {
         viewport={{ once: true }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-semibold text-[#7f6d5f]">Explore Our Picks</h2>
+        <h2 className="text-4xl font-semibold text-[#7f6d5f]">
+          Explore Our Picks
+        </h2>
         <p className="mt-4 text-[#6a5c51] text-lg">
           Curated essentials for your everyday style.
         </p>
       </motion.div>
 
+      {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {curatedProducts.map((product, idx) => (
           <motion.div
@@ -39,10 +43,11 @@ export default function TrendingLanding() {
         ))}
       </div>
 
+      {/* CTA Button */}
       <div className="text-center mt-12">
         <Link
           href="/product"
-          className="inline-block px-6 py-3 bg-[#7f6d5f] text-white rounded-full font-medium hover:bg-[#6a5c51] transition"
+          className="inline-block px-6 py-3 bg-[#7f6d5f] text-white rounded-full font-medium hover:bg-[#6a5c51] transition-shadow hover:shadow-md"
         >
           View All Products
         </Link>

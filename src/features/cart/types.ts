@@ -5,4 +5,5 @@ export interface CartItem {
   image: string;
   quantity: number;
   category?: string; // ✅ Add this line (optional if not always present)
+  discount?: number,
 }

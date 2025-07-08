@@ -2,8 +2,6 @@
 
 import type { ReactNode } from 'react';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import ClientLayout from './client-layout';
 
 export const metadata = {
@@ -43,11 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
-        <ClientLayout>
-          <Navbar />
-          <main className="pt-[72px] min-h-screen">{children}</main>
-        </ClientLayout>
-        <Footer />
+          <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

@@ -771,7 +771,7 @@ import React, { useState, useEffect } from 'react';
 import ProductData from '@/data/ProductData';
 import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/Product';
-import { Search, X} from 'lucide-react';
+import { Search, ShoppingBag, X} from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 const genders = ['all', 'men', 'women', 'kids'];
@@ -905,9 +905,13 @@ const Products: React.FC = () => {
         ]}
         />
 
-        <h1 className="text-4xl font-bold text-[#7f6d5f] text-center mb-10">
+        {/* <h1 className="text-4xl font-bold text-[#7f6d5f] text-center mb-10">
           Explore Our Collection
-        </h1>
+        </h1> */}
+        <header className="mb-8 flex items-center gap-3 text-[#7f6d5f]">
+          <ShoppingBag size={32} />
+          <h1 className="text-4xl font-bold select-none">Shop</h1>
+        </header>
 
         {/* Search & Sort */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">

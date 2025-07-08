@@ -7,7 +7,7 @@ import { useAppSelector } from '@/lib/hooks';
 const OrderSummary: React.FC = () => {
   const cartItems = useAppSelector(state => state.cart.items);
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
+  
   return (
     <div className="bg-white p-6 rounded-xl shadow-md border border-[#e9e4e0] space-y-4 animate-fadeIn">
       <h2 className="text-2xl font-bold text-[#7f6d5f] mb-2">Order Summary</h2>

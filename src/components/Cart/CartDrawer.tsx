@@ -58,12 +58,12 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                     className="flex items-center justify-between border-b pb-3 border-[#e9e4e0]"
                   >
                     <div>
-                      <h4 className="text-sm font-medium text-[#7f6d5f]">{item.name}</h4>
-                      <p className="text-xs text-[#6a5c51]">Qty: {item.quantity}</p>
-                      <p className="text-xs text-[#b59f90]">৳{item.price * item.quantity}</p>
+                      <h4 className="text-sm font-medium text-[#7f6d5f] p-1">{item.name}</h4>
+                      <p className="text-xs text-[#6a5c51] p-1">Qty: {item.quantity}</p>
+                      <p className="text-xs text-[#b59f90] p-1">৳{item.price * item.quantity}</p>
                     </div>
-                    <button onClick={() => dispatch(removeFromCart(item.id))}>
-                          <Trash2 size={18} className="text-red-400" />
+                    <button onClick={() => dispatch(removeFromCart(item.id))} className='text-[#b59f90] hover:text-red-500'>
+                          <Trash2 size={20} />
                     </button>
                   </div>
                 ))

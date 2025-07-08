@@ -15,6 +15,7 @@ export default function HomePage() {
     <>
       {/* <Navbar /> */}
       {/* <Hero /> */}
+      
       <HeroAlternative1/>
       <Lookbook/>
       <BrandStory/>
