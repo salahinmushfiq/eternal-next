@@ -76,7 +76,7 @@
 
 'use client'
 
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { useScroll} from 'framer-motion'
 import { useRef } from 'react'
 import BrandSlide from './BrandSlide'
 

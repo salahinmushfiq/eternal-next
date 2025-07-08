@@ -181,6 +181,7 @@
 
 import { motion, useTransform } from 'framer-motion'
 import Image from 'next/image'
+import type { MotionValue } from 'framer-motion';
 
 type BrandSlideProps = {
   index: number
@@ -188,7 +189,7 @@ type BrandSlideProps = {
   title: string
   text: string
   image: string
-  scrollYProgress: any
+  scrollYProgress: MotionValue<number>;
 }
 
 export default function BrandSlide({

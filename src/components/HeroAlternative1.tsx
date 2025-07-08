@@ -24,7 +24,7 @@ const HeroAlternative1 = () => {
         className="w-full md:w-1/2 text-center md:text-left z-10"
         initial="hidden"
         animate="show"
-        variants={fadeInUp}
+        variants={{fadeInUp}}
       >
         {/* Logo Image above heading */}
         <motion.div
@@ -42,17 +42,17 @@ const HeroAlternative1 = () => {
           />
         </motion.div>
         <motion.h1
-          variants={clipReveal}
+          variants={{clipReveal}}
           className="text-3xl md:text-5xl font-bold text-[#7f6d5f] uppercase tracking-tight"
         >
           Embrace the Eternal Lifestyle
         </motion.h1>
 
-        <motion.p className="mt-6 text-[#7f6d5f] text-base md:text-xl" variants={fadeInUp}>
+        <motion.p className="mt-6 text-[#7f6d5f] text-base md:text-xl" variants={{fadeInUp}}>
           Discover timeless fashion designed to inspire your everyday.
         </motion.p>
 
-        <motion.div className="mt-8" variants={fadeInUp}>
+        <motion.div className="mt-8" variants={{fadeInUp}}>
           <Link
             href="/product"
             className="inline-block px-6 py-3 bg-[#7f6d5f] text-white rounded-full font-medium hover:bg-[#3d3a36] transition"

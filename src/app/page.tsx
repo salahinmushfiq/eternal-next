@@ -1,9 +1,9 @@
-import Hero from "@/components/Hero";
+// import Hero from "@/components/Hero";
 // import Navbar from "@/components/Navbar";
 import Testimonials from "@/components/Testimonials";
 // import Footer from "@/components/Footer";
-import Gallery from "@/components/gallery";
-import Trending from "@/components/Trending";
+// import Gallery from "@/components/gallery";
+// import Trending from "@/components/Trending";
 import HeroAlternative1 from "@/components/HeroAlternative1";
 import Lookbook from "@/components/Lookbok";
 import BrandStory from "@/components/BrandStory";

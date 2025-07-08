@@ -40,21 +40,21 @@ export default function Home() {
           className="w-full md:w-1/2 text-center md:text-left z-10"
           initial="hidden"
           animate="show"
-          variants={fadeInUp}
+          variants={{fadeInUp}}
         >
           <motion.h1
-            variants={clipReveal}
+            variants={{clipReveal}}
             className="text-5xl md:text-7xl font-bold text-[#2a2a2a] uppercase tracking-tight"
           >
             Eternal Fashion
           </motion.h1>
           <motion.p
             className="mt-6 text-[#7f6d5f] text-lg md:text-xl"
-            variants={fadeInUp}
+            variants={{fadeInUp}}
           >
             Discover timeless designs for modern expression
           </motion.p>
-          <motion.div className="mt-8" variants={fadeInUp}>
+          <motion.div className="mt-8" variants={{fadeInUp}}>
             <Link
               href="/products"
               className="inline-block px-6 py-3 bg-[#7f6d5f] text-white rounded-full font-medium hover:bg-[#3d3a36] transition"
@@ -85,7 +85,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          variants={fadeInUp}
+          variants={{fadeInUp}}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-semibold text-[#7f6d5f]">Lookbook</h2>

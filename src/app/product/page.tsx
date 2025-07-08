@@ -771,7 +771,7 @@ import React, { useState, useEffect } from 'react';
 import ProductData from '@/data/ProductData';
 import ProductCard from '@/components/ProductCard';
 import { Product } from '@/types/Product';
-import { Search, X, ChevronRight } from 'lucide-react';
+import { Search, X} from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 const genders = ['all', 'men', 'women', 'kids'];

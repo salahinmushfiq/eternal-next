@@ -1,7 +1,14 @@
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const calculateAverageRating = (reviews: any[]) => {
+interface Review {
+  id: number;
+  user: string;
+  rating: number;
+  comment: string;
+  date: string;
+}
+const calculateAverageRating = (reviews: Review[]) => {
   const total = reviews.reduce((sum, r) => sum + r.rating, 0);
   return (total / reviews.length).toFixed(1);
 };
@@ -22,7 +29,7 @@ const renderStars = (rating: number) => {
   return <div className="flex items-center gap-1">{stars}</div>;
 };
 
-const Reviews = ({ reviews }: { reviews: any[] }) => {
+const Reviews = ({ reviews }: { reviews: Review[] }) => {
   const avg = parseFloat(calculateAverageRating(reviews));
 
   return (
