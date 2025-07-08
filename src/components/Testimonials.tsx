@@ -154,6 +154,7 @@ const Testimonials = () => {
                     fill
                     className="object-cover"
                     sizes="64px"
+                    unoptimized 
                     priority={i === 0} // prioritize loading first image
                   />
                 </div>
