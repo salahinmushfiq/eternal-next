@@ -235,14 +235,14 @@ const Navbar: React.FC = () => {
                   Contact
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href='/product'
                   className="hover:text-[#b59f90] transition focus:outline-none focus-visible:ring-2 ring-[#b59f90] rounded"
                 >
                   Product
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
